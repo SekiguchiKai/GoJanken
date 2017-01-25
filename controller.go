@@ -27,7 +27,7 @@ func (p *Player) setPlayerHand(intHand int) {
 
 
 // controller1
-func ReadHTML(res http.ResponseWriter, req *http.Request) {
+func IndexHandler(res http.ResponseWriter, req *http.Request) {
 	fmt.Println("ReadHTMLが呼ばれました")
 	file, err := os.Open("./resource/index.html")
 
@@ -57,7 +57,7 @@ func ReadHTML(res http.ResponseWriter, req *http.Request) {
 
 
 // controller2
-func sendResponse(res http.ResponseWriter, req *http.Request) {
+func ResultHandler(res http.ResponseWriter, req *http.Request) {
 	fmt.Println("sendResponse")
 
 	user := new(Player)
