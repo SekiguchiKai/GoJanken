@@ -8,8 +8,8 @@ import (
 // handler(controller)を保持しておく
 func main() {
 	fmt.Println("The Server runs with http://localhost:8080/")
-	http.HandleFunc("/", ReadHTML)
-	http.HandleFunc("/control", sendResponse)
+	http.HandleFunc("/", IndexHandler)
+	http.HandleFunc("/control", ResultHandler)
 	http.ListenAndServe(":8080", nil)
 }
 
