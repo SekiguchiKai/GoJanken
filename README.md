@@ -1,6 +1,7 @@
 # JankenGo
 JankenServer with Go lang.
 
+[![CircleCI](https://circleci.com/gh/SekiguchiKai/GoJanken.svg?style=svg)](https://circleci.com/gh/SekiguchiKai/GoJanken)
 
 
 ##Overview
