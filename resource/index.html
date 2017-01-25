@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+<h1>じゃんけん勝負だ</h1>
+<p>以下の中から、自分の打ち手を選べ</p>
+
+<form method="POST" action="/control">
+    <input type="radio" name="hand" value="0" checked="checked">グー
+    <input type="radio" name="hand" value="1">チョキ
+    <input type="radio" name="hand" value="2">パー
+    <input type="submit" value="送信する">
+</form>
+</body>
+
+</html>
