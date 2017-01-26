@@ -10,7 +10,7 @@ func TestSetPlayerHand(t *testing.T) {
 	tyoki := "チョキ"
 	pa := "パー"
 
-	user := new(Player)
+	user := new(player)
 	user.setPlayerHand(0)
 	testSetPlayerHandHelper(t, user, gu)
 	user.setPlayerHand(1)
@@ -19,7 +19,7 @@ func TestSetPlayerHand(t *testing.T) {
 	testSetPlayerHandHelper(t, user, pa)
 }
 
-func testSetPlayerHandHelper(t *testing.T, user *Player, expected string) {
+func testSetPlayerHandHelper(t *testing.T, user *player, expected string) {
 	userHand := user.PlayerHand
 
 	if userHand != expected {

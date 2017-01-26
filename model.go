@@ -5,13 +5,13 @@ import (
 	"time"
 )
 
-type Player struct {
+type player struct {
 	PlayerHand   string
 	PlayerName   string
 	PlayerResult string
 }
 
-func (p *Player) setPlayerHand(intHand int) {
+func (p *player) setPlayerHand(intHand int) {
 
 	switch intHand {
 	case 0:
@@ -23,6 +23,12 @@ func (p *Player) setPlayerHand(intHand int) {
 	}
 }
 
+func NewPlayer(playerName string) *player {
+	player := new(player)
+	player.PlayerName = playerName
+
+	return player
+}
 
 
 // ランダムでcouの値を作成する

@@ -2,9 +2,8 @@ package main
 
 import (
 	"net/http"
-	"fmt"
-	"os"
 	"strconv"
+	"log"
 )
 
 
@@ -17,18 +16,14 @@ func IndexHandler(res http.ResponseWriter, req *http.Request) {
 
 // controller2
 func ResultHandler(res http.ResponseWriter, req *http.Request) {
-	user := new(Player)
-	cpu := new(Player)
+	user := NewPlayer("あなた")
+	cpu := NewPlayer("AI")
 
 	hand := req.FormValue("hand")
 
-	user.PlayerName = "あなた"
-	cpu.PlayerName = "AI"
-
 	intUserHand, err := strconv.Atoi(hand)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Println(err)
 	}
 	user.setPlayerHand(intUserHand)
 
@@ -37,6 +32,10 @@ func ResultHandler(res http.ResponseWriter, req *http.Request) {
 
 	user.PlayerResult, cpu.PlayerResult = Judge(intUserHand, intCpuHand)
 
-	resultView(res, req, user, cpu)
+	err = resultView(res, req, user, cpu)
+
+	if err != nil {
+		log.Println(err)
+	}
 
 }
