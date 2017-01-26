@@ -8,6 +8,7 @@ JankenServer with Go lang.
 JankenGo is the  JankenServer-GoLang-version-.
 
 ## Description
+
 Player choices his/her hands of rock-paper-scissors, and battale with the server which automatically choice it's hands of rock-paper-scissors.
 
 
