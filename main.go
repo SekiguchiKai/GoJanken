@@ -9,7 +9,7 @@ import (
 func main() {
 	fmt.Println("The Server runs with http://localhost:8080/")
 	http.HandleFunc("/", IndexHandler)
-	http.HandleFunc("/control", ResultHandler)
+	http.HandleFunc("/result", ResultHandler)
 	http.ListenAndServe(":8080", nil)
 }
 
