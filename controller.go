@@ -28,7 +28,6 @@ func (p *Player) setPlayerHand(intHand int) {
 
 // controller1
 func IndexHandler(res http.ResponseWriter, req *http.Request) {
-	fmt.Println("ReadHTMLが呼ばれました")
 	file, err := os.Open("./resource/index.html")
 
 	if err != nil {
@@ -50,7 +49,6 @@ func IndexHandler(res http.ResponseWriter, req *http.Request) {
 			break
 		}
 
-		//fmt.Print(string(buf[:n]))
 		res.Write(buf[:n])
 	}
 }
@@ -58,39 +56,24 @@ func IndexHandler(res http.ResponseWriter, req *http.Request) {
 
 // controller2
 func ResultHandler(res http.ResponseWriter, req *http.Request) {
-	fmt.Println("sendResponse")
-
 	user := new(Player)
 	cpu := new(Player)
 
 	hand := req.FormValue("hand")
 
-	// modelに渡す
 	user.PlayerName = "あなた"
+	cpu.PlayerName = "AI"
 
-	//　打ち手
 	intUserHand, err := strconv.Atoi(hand)
-	user.setPlayerHand(intUserHand)
-
-	intCpuHand := DecideCpuHand()
-	fmt.Print("cpuの")
-	fmt.Print(intCpuHand)
-	cpu.setPlayerHand(intCpuHand)
-
-	user.PlayerResult, cpu.PlayerResult = Judge(intUserHand, intCpuHand)
-
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+	user.setPlayerHand(intUserHand)
 
-	// cpu
-	cpu.PlayerName = "AI"
+	intCpuHand := DecideCpuHand()
+	cpu.setPlayerHand(intCpuHand)
 
-	fmt.Println(cpu.PlayerHand)
-	fmt.Println(cpu.PlayerName)
-
-	// 勝敗結果
 	user.PlayerResult, cpu.PlayerResult = Judge(intUserHand, intCpuHand)
 
 	resultView(res, req, user, cpu)
