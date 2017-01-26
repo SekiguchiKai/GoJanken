@@ -5,13 +5,35 @@ import (
 	"time"
 )
 
+type Player struct {
+	PlayerHand   string
+	PlayerName   string
+	PlayerResult string
+}
+
+func (p *Player) setPlayerHand(intHand int) {
+
+	switch intHand {
+	case 0:
+		p.PlayerHand = "グー"
+	case 1:
+		p.PlayerHand = "チョキ"
+	default:
+		p.PlayerHand = "パー"
+	}
+}
+
+
 
 // ランダムでcouの値を作成する
 func DecideCpuHand() (int) {
-	// 一定のランダムではなく、毎回異なる擬似乱数を作成するためにseedを食わせる
-	rand.Seed(time.Now().UnixNano())
-	// 0~2にするために
-	cpuHand := rand.Intn(3)
+	// 擬似乱数生成器のソースを現時刻から生成
+	src := rand.NewSource(time.Now().UnixNano())
+
+	// srcをseedとして擬似乱数生成器を作成
+	ran := rand.New(src)
+	// 0~2の擬似乱数を生成
+	cpuHand := ran.Intn(3)
 
 	return cpuHand
 }
