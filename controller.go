@@ -6,8 +6,6 @@ import (
 	"log"
 )
 
-
-
 // controller1
 func IndexHandler(res http.ResponseWriter, req *http.Request) {
 	http.ServeFile(res, req, "./resource/index.html")
