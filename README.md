@@ -6,10 +6,9 @@ JankenServer with Go lang.
 
 ##Overview
 JankenGo is the  JankenServer-GoLang-version-.
-This is the application which enables people to play the Janken game online.
 
 ## Description
-Player choices the his/her hands of rock-paper-scissors, and battale with the server which automatically choice it's hands of rock-paper-scissors.
+Player choices  his/her hands of rock-paper-scissors, and battale with the server which automatically choice it's hands of rock-paper-scissors.
 
 
 ## Usage
